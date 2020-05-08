@@ -7,6 +7,19 @@
 import pytest
 from Practice.calc import Calc
 
-a = Calc()
-a.addition(6, 6)
 
+# content of test_calc.py
+class TestClass:
+    calc = Calc()
+
+    def test_addition_one(self):
+        result = self.calc.addition(5, 5)
+        assert result == 10
+
+    def test_addition_two(self):
+        result = self.calc.addition(5, 6)
+        assert result == 10
+
+
+if __name__ == '__main__':
+    pytest.main(["-s", "--html=a.html", "./Practice/test_calc.py"])
