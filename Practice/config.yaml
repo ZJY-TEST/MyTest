@@ -1,0 +1,42 @@
+
+
+# 云端数据库信息
+cloud_db:
+    host: '192.168.2.60'
+    port: 32700
+    user: 'root'
+    password: 'v@aseit.0N9B'
+    db_name: 'sit_cloud_elec'
+    cloud_charset: 'utf8'
+
+
+# 雾端数据库信息
+fog_db:
+    host: '192.168.2.62'
+    port: 32700
+    user: 'root'
+    password: 'v@aseit.0N9B'
+    db_name: 'sit_fog_elec'
+    cloud_charset: 'utf8'
+
+# kafka信息
+kafka:
+    bootstrap_servers: '192.168.2.62:42701'
+    topic: 'QuotaTopic'
+
+# 发送信息
+send_data:
+    min_value: '0'
+    max_value: '100'
+    unit: '%rh'
+    indicatorId: '1c1cc1d80b8d45e7b0ee1cd272fd880a'
+    type: 'HUMIDITY'
+    groupId: 'null'
+
+
+# taskId
+sql_data:
+    taskId: 'c9ad91ae196f486b8107af3a3d2f610e'
+
+
+
