@@ -5,3 +5,8 @@
 # @Software: PyCharm
 
 import pytest
+from Practice.calc import Calc
+
+a = Calc()
+a.addition(6, 6)
+
