@@ -48,5 +48,5 @@ class TestClass:
 
 
 if __name__ == '__main__':
-    pytest.main(["-s", "--html=report.html", "./Practice/test_calc.py"])
+    # pytest.main(["-s", "--html=report.html", "./Practice/test_calc.py"])
     pytest.main(["-vs", "./Practice/test_calc.py"])
