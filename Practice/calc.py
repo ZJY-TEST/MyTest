@@ -8,21 +8,48 @@
 class Calc:
 
     # 加法
-    def addition(self, x, y):
-        z = int(x) + int(y)
-        return z
+    def addition(self, x: float, y: float):
+        """
+        :param x: float
+        :param y: float
+        :return: x+y
+        """
+        z = x + y
+        return round(z, 2)
 
     # 减法
-    def substarction(self, x, y):
-        z = int(x) - int(y)
-        return z
+    def substarction(self, x: float, y: float):
+        """
+        :param x: float
+        :param y: float
+        :return: x-y
+        """
+        z = x - y
+        return round(z, 2)
 
     # 乘法
-    def multiplication(self, x, y):
-        z = int(x) * int(y)
-        return z
+    def multiplication(self, x: float, y: float):
+        """
+        :param x: float
+        :param y: float
+        :return: x*y
+        """
+        z = x * y
+        return round(z, 2)
 
     # 除法
-    def division(self, x, y):
-        z = int(x) / int(y)
-        return z
+    def division(self, x: float, y: float):
+        """
+        :param x: float
+        :param y: float,y!=0
+        :return: x/y
+        """
+        if y ==0:
+            return ZeroDivisionError("分母不能为0")
+        else:
+            z = x / y
+            return round(z, 2)
+
+
+
+
