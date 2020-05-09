@@ -13,33 +13,40 @@ class TestClass:
     def setup(self):
         self.calc = Calc()
 
-    @pytest.mark.parametrize("x, y, z", [(1, 2, 3),
-                                         (-1, -2, -3),
-                                         (0.1, 0.2, 0.3),
-                                         (0.005, 0.004, 0.01),
-                                         (0.0000, 0.00000, 0.00),
-                                         (3.001, -3.0, 0),
-                                         (4.569, 0, 4.57)])
-    def test_addition(self, x, y, z):
-        result = self.calc.addition(x, y)
-        assert result == z
+    def test_addition(self):
+        result = self.calc.addition(1, 1)
+        assert result == 2
 
-    # @pytest.mark.parametrize()
     def test_substarction(self):
-        result = self.calc.substarction(5, 6)
-        assert result == 10
+        result = self.calc.substarction(1, 1)
+        assert result == 0
 
-    # @pytest.mark.parametrize()
     def test_multiplication(self):
-        result = self.calc.multiplication(6, 6)
-        assert result == 9
-
-    # @pytest.mark.parametrize()
-    def test_division(self):
-        result = self.calc.division(9, 9)
+        result = self.calc.multiplication(1, 1)
         assert result == 1
+
+
+
+    """
+    有效等价类：
+        分子：整数、负数、浮点数、0
+        分母：分子：整数、负数、浮点数
+    无效等价类：
+        分子：非数字（字母、字符等）
+        分母：0、非数字（字母、字符等）
+    """
+    @pytest.mark.parametrize("x, y, z", [(9, 3, 3),
+                                 (9, -3, -3),
+                                 (-9.999, 1.111, -9.00),
+                                 (0, 6, 0),
+                                 (5, 0, "分母不能为0"),
+                                 ("x", "y", "z")
+                                 ])
+    def test_division(self, x, y, z):
+        result = self.calc.division(x, y)
+        assert result == z
 
 
 if __name__ == '__main__':
     pytest.main(["-s", "--html=report.html", "./Practice/test_calc.py"])
-    # pytest.main(["-vs", "./Practice/test_calc.py"])
+    pytest.main(["-vs", "./Practice/test_calc.py"])

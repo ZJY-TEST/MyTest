@@ -45,7 +45,7 @@ class Calc:
         :return: x/y
         """
         if y ==0:
-            return ZeroDivisionError("分母不能为0")
+            return "分母不能为0"
         else:
             z = x / y
             return round(z, 2)
