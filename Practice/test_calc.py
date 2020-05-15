@@ -25,8 +25,6 @@ class TestClass:
         result = self.calc.multiplication(1, 1)
         assert result == 1
 
-
-
     """
     有效等价类：
         分子：整数、负数、浮点数、0
@@ -35,13 +33,14 @@ class TestClass:
         分子：非数字（字母、字符等）
         分母：0、非数字（字母、字符等）
     """
+
     @pytest.mark.parametrize("x, y, z", [(9, 3, 3),
-                                 (9, -3, -3),
-                                 (-9.999, 1.111, -9.00),
-                                 (0, 6, 0),
-                                 (5, 0, "分母不能为0"),
-                                 ("x", "y", "z")
-                                 ])
+                                         (9, -3, -3),
+                                         (-9.999, 1.111, -9.00),
+                                         (0, 6, 0),
+                                         (5, 0, "分母不能为0"),
+                                         ("x", "y", "z")
+                                         ])
     def test_division(self, x, y, z):
         result = self.calc.division(x, y)
         assert result == z
