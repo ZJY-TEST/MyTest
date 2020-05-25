@@ -1,10 +1,11 @@
-# -*- coding:utf-8 -*-
+# -*- coding: utf-8 -*-
 # @Time : 2020/5/6 10:21 
 # @Author : Zhang Jingyao
 # @File : test_calc.py
 # @Software: PyCharm
 
 import pytest
+import os
 from Practice.calc import Calc
 
 
@@ -13,9 +14,14 @@ class TestClass:
     def setup(self):
         self.calc = Calc()
 
-    def test_addition(self):
-        result = self.calc.addition(1, 1)
-        assert result == 2
+    @pytest.mark.parametrize("x, y, z", [(1, 2, 3),
+                                         (9, -3, 6),
+                                         (-9.999, 1.111, -8.89),
+                                         (0, 6, 6)
+                                         ])
+    def test_addition(self, x, y, z):
+        result = self.calc.addition(x, y)
+        assert result == z
 
     def test_substarction(self):
         result = self.calc.substarction(1, 1)
@@ -48,4 +54,4 @@ class TestClass:
 
 if __name__ == '__main__':
     # pytest.main(["-s", "--html=report.html", "./Practice/test_calc.py"])
-    pytest.main(["-vs", "./Practice/test_calc.py"])
+    pytest.main(["-vs", "F:/Hogwarts/Practice/test_calc.py]"])
